@@ -1,12 +1,12 @@
 [
     {
-        "Author": "Lichie",
+        "Author": "Lichie, susy_baka",
         "Name": "LMeter",
         "Description": "Plugin to display ACT combat log data.",
         "InternalName": "LMeter",
         "AssemblyVersion": "1.0.0.0",
         "TestingAssemblyVersion": "1.0.0.0",
-        "RepoUrl": "https://github.com/lichie567/LMeter",
+        "RepoUrl": "https://github.com/susy-bakaa/LMeter",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 10,
         "IsHide": "False",
@@ -14,9 +14,9 @@
         "DownloadCount": 0,
         "LastUpdate": 0,
         "LoadPriority": 69420,
-        "DownloadLinkInstall": "https://github.com/lichie567/LMeter/releases/download/1.0.0.0/LMeter.zip",
-        "DownloadLinkTesting": "https://github.com/lichie567/LMeter/releases/download/1.0.0.0/LMeter.zip",
-        "DownloadLinkUpdate": "https://github.com/lichie567/LMeter/releases/download/1.0.0.0/LMeter.zip",
-        "IconUrl": "https://raw.githubusercontent.com/lichie567/LMeter/main/LMeter/Media/Images/icon.png"
+        "DownloadLinkInstall": "https://github.com/susy-bakaa/LMeter/releases/download/1.0.0.0/LMeter.zip",
+        "DownloadLinkTesting": "https://github.com/susy-bakaa/LMeter/releases/download/1.0.0.0/LMeter.zip",
+        "DownloadLinkUpdate": "https://github.com/susy-bakaa/LMeter/releases/download/1.0.0.0/LMeter.zip",
+        "IconUrl": "https://raw.githubusercontent.com/susy-bakaa/LMeter/main/LMeter/Media/Images/icon.png"
     }
 ]
