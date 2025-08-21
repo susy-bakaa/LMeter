@@ -4,7 +4,7 @@ using Dalamud.Interface;
 using Dalamud.Interface.ImGuiNotification;
 using Dalamud.Interface.Textures.TextureWraps;
 using Dalamud.Plugin.Services;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 
 namespace LMeter.Helpers
 {
@@ -87,7 +87,7 @@ namespace LMeter.Helpers
                 return;
             }
 
-            drawList.AddImage(tex.ImGuiHandle, position, position + size, Vector2.Zero, Vector2.One);
+            drawList.AddImage(tex.Handle, position, position + size, Vector2.Zero, Vector2.One);
         }
 
         public static void DrawIcon(
@@ -110,7 +110,7 @@ namespace LMeter.Helpers
             (Vector2 uv0, Vector2 uv1) = GetTexCoordinates(tex, size, cropIcon);
 
             uint alpha = (uint)(opacity * 255) << 24 | 0x00FFFFFF;
-            drawList.AddImage(tex.ImGuiHandle, position, position + size, uv0, uv1, alpha);
+            drawList.AddImage(tex.Handle, position, position + size, uv0, uv1, alpha);
         }
 
         public static (Vector2, Vector2) GetTexCoordinates(IDalamudTextureWrap texture, Vector2 size, bool cropIcon = true)
