@@ -12,6 +12,8 @@ namespace LMeter.Helpers
     {
         private static readonly uint[] _goldenSaucerIDs = [144, 388, 389, 390, 391, 579, 792, 899, 941];
 
+        private static readonly uint[] _fieldOperationIDs = []; // Fill in with actual IDs at some point
+
         public static bool IsCharacterBusy()
         {
             ICondition condition = Singletons.Get<ICondition>();
@@ -42,9 +44,22 @@ namespace LMeter.Helpers
             return condition[ConditionFlag.Performing];
         }
 
+        public static bool IsInPvP()
+        {
+            IClientState state = Singletons.Get<IClientState>();
+            ICondition condition = Singletons.Get<ICondition>();
+
+            return state.IsPvP || condition.Any(ConditionFlag.BoundByDuty, ConditionFlag.BoundByDuty56, ConditionFlag.BoundByDuty95) && condition.Any(ConditionFlag.InCombat);
+        }
+
         public static bool IsInGoldenSaucer()
         {
             return _goldenSaucerIDs.Any(id => id == Singletons.Get<IClientState>().TerritoryType);
+        }
+
+        public static bool IsInFieldOperation()
+        {
+            return _fieldOperationIDs.Any(id => id == Singletons.Get<IClientState>().TerritoryType);
         }
 
         public static Job GetCharacterJob()

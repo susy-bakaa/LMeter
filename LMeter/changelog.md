@@ -1,3 +1,16 @@
+# Version 0.3.1.3
+- Added an option to hide Meter if you're participating in PvP
+- Added a button to quickly toggle Meter visibility from the list
+- Fixed an issue where the toggle command wasn't working
+- Fixed an issue where the icon image was not loading
+- Updated some plugin information and links
+
+# Version 0.3.1.2
+- Updated plugin for Dawntrail 7.3 and Dalamud API13
+
+# Version 0.3.1.1
+- Updated plugin for Dawntrail 7.2 and Dalamud API12
+
 # Version 0.3.1.0
 - Updated plugin for Dawntrail
 - Added support for Viper and Pictomancer

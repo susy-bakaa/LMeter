@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Numerics;
+using Dalamud.Bindings.ImGui;
 using Dalamud.Interface;
 using Dalamud.Interface.ImGuiNotification;
-using Dalamud.Bindings.ImGui;
+using Dalamud.Plugin.Services;
 using LMeter.Helpers;
 using LMeter.Meter;
 using Newtonsoft.Json;
@@ -37,9 +39,13 @@ namespace LMeter.Config
         {
             if (meterIndex >= 0 && meterIndex < this.Meters.Count)
             {
+                // Old config visibility toggle
                 this.Meters[meterIndex].VisibilityConfig.AlwaysHide = toggle.HasValue
                     ? !toggle.Value
                     : !this.Meters[meterIndex].VisibilityConfig.AlwaysHide;
+
+                // Set new config visibility and if it doesn't exist fall back to copying old config
+                this.Meters[meterIndex].VisibilityConfig2.SetVisiblity(this.Meters[meterIndex].VisibilityConfig, toggle);
             }
         }
 
@@ -86,7 +92,7 @@ namespace LMeter.Config
             if (ImGui.BeginTable("##Meter_Table", 3, flags, new Vector2(size.X, size.Y - MenuBarHeight)))
             {
                 Vector2 buttonsize = new(30, 0);
-                float actionsWidth = buttonsize.X * 3 + padX * 2;
+                float actionsWidth = buttonsize.X * 4 + padX * 3;
 
                 ImGui.TableSetupColumn("   #", ImGuiTableColumnFlags.WidthFixed, 18, 0);
                 ImGui.TableSetupColumn("Profile Name", ImGuiTableColumnFlags.WidthStretch, 0, 1);
@@ -98,6 +104,7 @@ namespace LMeter.Config
                 for (int i = 0; i < this.Meters.Count; i++)
                 {
                     MeterWindow meter = this.Meters[i];
+                    bool visible = meter.VisibilityConfig.AlwaysHide;
 
                     if (!string.IsNullOrEmpty(_input) &&
                         !meter.Name.Contains(_input, StringComparison.OrdinalIgnoreCase))
@@ -127,6 +134,9 @@ namespace LMeter.Config
                     if (ImGui.TableSetColumnIndex(2))
                     {
                         ImGui.SetCursorPosY(ImGui.GetCursorPosY() + 1f);
+                        DrawHelpers.DrawButton(string.Empty, visible ? FontAwesomeIcon.Eye : FontAwesomeIcon.EyeSlash, () => ToggleMeter(i), visible ? "Hide Meter" : "Show Meter", buttonsize);
+
+                        ImGui.SameLine();
                         DrawHelpers.DrawButton(string.Empty, FontAwesomeIcon.Pen, () => EditMeter(meter), "Edit", buttonsize);
 
                         ImGui.SameLine();

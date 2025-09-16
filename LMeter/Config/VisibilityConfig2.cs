@@ -29,7 +29,9 @@ namespace LMeter.Config
         public bool HideOutsideCombat = false;
         public bool HideOutsideDuty = false;
         public bool HideWhilePerforming = false;
+        public bool HideInPvP = false;
         public bool HideInGoldenSaucer = false;
+        public bool HideInFieldOperations = false;
         public bool HideIfNotConnected = false;
 
         public JobType ShowForJobTypes = JobType.All;
@@ -58,7 +60,17 @@ namespace LMeter.Config
                 return false;
             }
 
+            if (this.HideInPvP && CharacterState.IsInPvP())
+            {
+                return false;
+            }
+
             if (this.HideInGoldenSaucer && CharacterState.IsInGoldenSaucer())
+            {
+                return false;
+            }
+
+            if (this.HideInFieldOperations && CharacterState.IsInFieldOperation())
             {
                 return false;
             }
@@ -77,7 +89,9 @@ namespace LMeter.Config
             ImGui.Checkbox("Hide Outside Combat", ref this.HideOutsideCombat);
             ImGui.Checkbox("Hide Outside Duty", ref this.HideOutsideDuty);
             ImGui.Checkbox("Hide While Performing", ref this.HideWhilePerforming);
+            ImGui.Checkbox("Hide In PvP", ref this.HideInPvP);
             ImGui.Checkbox("Hide In Golden Saucer", ref this.HideInGoldenSaucer);
+            ImGui.Checkbox("Hide In Field Operations", ref this.HideInFieldOperations);
             ImGui.Checkbox("Hide While Not Connected to ACT", ref this.HideIfNotConnected);
 
             DrawHelpers.DrawSpacing(1);
@@ -142,12 +156,26 @@ namespace LMeter.Config
             newOption.HideOutsideCombat = oldConfig.HideOutsideCombat;
             newOption.HideWhilePerforming = oldConfig.HideWhilePerforming;
             newOption.HideOutsideDuty = oldConfig.HideOutsideDuty;
+            newOption.HideInPvP = oldConfig.HideInPvP;
             newOption.HideInGoldenSaucer = oldConfig.HideInGoldenSaucer;
-            
+            newOption.HideInFieldOperations = oldConfig.HideInFieldOperations;
             newOption.ShowForJobTypes = oldConfig.ShowForJobTypes;
             newOption.CustomJobList = oldConfig.CustomJobList;
             newOption.CustomJobString = oldConfig.CustomJobString;
             this.AddOption(newOption);
+        }
+
+        // Sets visibility of the first visibility option in the new config or creates a new one based on the old config if no options exist
+        public void SetVisiblity(VisibilityConfig oldConfig, bool? state)
+        {
+            if (this.VisibilityOptions.Count == 0)
+            {
+                SetOldConfig(oldConfig);
+                return;
+            }
+
+            VisibilityOption firstOption = this.VisibilityOptions[0];
+            firstOption.AlwaysHide = state.HasValue ? state.Value : !firstOption.AlwaysHide;
         }
 
         public bool IsVisible()

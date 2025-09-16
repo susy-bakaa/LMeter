@@ -66,6 +66,7 @@ namespace LMeter
 
             _clientState.Logout += OnLogout;
             _pluginInterface.UiBuilder.OpenConfigUi += OpenConfigUi;
+            _pluginInterface.UiBuilder.OpenMainUi += OpenConfigUi;
             _pluginInterface.UiBuilder.Draw += Draw;
         }
 
@@ -217,6 +218,7 @@ namespace LMeter
                 // Don't modify order
                 _pluginInterface.UiBuilder.Draw -= Draw;
                 _pluginInterface.UiBuilder.OpenConfigUi -= OpenConfigUi;
+                _pluginInterface.UiBuilder.OpenMainUi -= OpenConfigUi;
                 _clientState.Logout -= OnLogout;
                 _commandManager.RemoveHandler("/lm");
                 _windowSystem.RemoveAllWindows();

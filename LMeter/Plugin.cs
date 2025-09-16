@@ -83,7 +83,7 @@ namespace LMeter
             Singletons.Register(new TexturesCache());
 
             // Load Icon Texure
-            Plugin.IconTexture = LoadIconTexture(textureProvider);
+            framework.RunOnFrameworkThread(() => Plugin.IconTexture = LoadIconTexture(textureProvider));
 
             // Load changelog
             Plugin.Changelog = LoadChangelog();
@@ -142,7 +142,6 @@ namespace LMeter
             try
             {
                 texture = textureProvider.GetFromFile(iconPath).GetWrapOrDefault();
-                
             }
             catch (Exception ex)
             {

@@ -48,19 +48,19 @@ namespace LMeter.Config
                 Vector2 buttonSize = new((size.X - padX * 2 - padX * 2) / 3, 30 - padY * 2);
                 if (ImGui.Button("Github", buttonSize))
                 {
-                    Utils.OpenUrl("https://github.com/lichie567/LMeter");
+                    Utils.OpenUrl("https://github.com/susy-bakaa/LMeter");
                 }
 
                 ImGui.SameLine();
                 if (ImGui.Button("Help", buttonSize))
                 {
-                    Utils.OpenUrl("https://github.com/lichie567/LMeter/wiki/FAQ");
+                    Utils.OpenUrl("https://github.com/susy-bakaa/LMeter/wiki/FAQ");
                 }
 
                 ImGui.SameLine();
                 if (ImGui.Button("Discord", buttonSize))
                 {
-                    Utils.OpenUrl("https://discord.gg/delvui");
+                    Utils.OpenUrl("https://discord.gg/wepQtPfC6D");
                 }
 
                 ImGui.PopStyleVar();
