@@ -49,7 +49,7 @@ namespace LMeter.Helpers
             IClientState state = Singletons.Get<IClientState>();
             ICondition condition = Singletons.Get<ICondition>();
 
-            return state.IsPvP || condition.Any(ConditionFlag.BoundByDuty, ConditionFlag.BoundByDuty56, ConditionFlag.BoundByDuty95) && condition.Any(ConditionFlag.InCombat);
+            return state.IsPvP;
         }
 
         public static bool IsInGoldenSaucer()
