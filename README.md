@@ -8,4 +8,4 @@ The version of this plugin in this repository is specifically feature frozen ver
 
 LMeter is not available in the standard Dalamud plugin repository and must be installed as a third party repository.
 
-Here is the URL for the repository: `https://raw.githubusercontent.com/susy-bakaa/LMeter/refs/heads/main/repo.json`
+Here is the URL for the repository: `https://susybaka.dev/ffxiv/dalamud/repo.json`
