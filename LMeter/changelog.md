@@ -1,3 +1,6 @@
+# Version 0.3.1.4
+- Updated plugin for Dawntrail 7.4 and Dalamud API14
+
 # Version 0.3.1.3
 - Added an option to hide Meter if you're participating in PvP
 - Added a button to quickly toggle Meter visibility from the list
