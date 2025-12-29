@@ -4,8 +4,8 @@
         "Name": "LMeter",
         "Description": "Plugin to display ACT combat log data.",
         "InternalName": "LMeter",
-        "AssemblyVersion": "0.3.1.4",
-        "TestingAssemblyVersion": "0.3.1.4",
+        "AssemblyVersion": "0.3.1.5",
+        "TestingAssemblyVersion": "0.3.1.5",
         "RepoUrl": "https://github.com/susy-bakaa/LMeter",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 14,
@@ -14,9 +14,9 @@
         "DownloadCount": 0,
         "LastUpdate": 0,
         "LoadPriority": 69420,
-        "DownloadLinkInstall": "https://github.com/susy-bakaa/LMeter/releases/download/v.0.3.1.4/latest.zip",
-        "DownloadLinkTesting": "https://github.com/susy-bakaa/LMeter/releases/download/v.0.3.1.4/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/susy-bakaa/LMeter/releases/download/v.0.3.1.4/latest.zip",
+        "DownloadLinkInstall": "https://github.com/susy-bakaa/LMeter/releases/download/v.0.3.1.5/latest.zip",
+        "DownloadLinkTesting": "https://github.com/susy-bakaa/LMeter/releases/download/v.0.3.1.5/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/susy-bakaa/LMeter/releases/download/v.0.3.1.5/latest.zip",
         "IconUrl": "https://raw.githubusercontent.com/susy-bakaa/LMeter/main/LMeter/Media/Images/icon.png"
     }
 ]

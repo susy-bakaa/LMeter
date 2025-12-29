@@ -1,3 +1,6 @@
+# Version 0.3.1.5
+- Fixed a Dalamud load error that was happening
+
 # Version 0.3.1.4
 - Updated plugin for Dawntrail 7.4 and Dalamud API14
 
